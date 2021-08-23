@@ -75,8 +75,9 @@ const SignIn = () => {
 				label="Email: "
 				placeholder="example@example.com"
 				onBlur={() => handleTouched('email')}
+				errorMessage="not valid email"
+				errorCondition={form[0].valid === false}
 			/>
-			{form[0].valid === false && <p>not valid email -'-</p>}
 			<Input
 				className="signin-input"
 				type="password"
@@ -84,8 +85,9 @@ const SignIn = () => {
 				label="Password: "
 				placeholder="example123"
 				onBlur={() => handleTouched('password')}
+				errorMessage="not valid password"
+				errorCondition={form[1].valid === false}
 			/>
-			{form[1].valid === false && <p>your password sucks -'-</p>}
 			<Input
 				className="signin-input"
 				type="text"
@@ -93,8 +95,9 @@ const SignIn = () => {
 				label="Username: "
 				placeholder="your username"
 				onBlur={() => handleTouched('username')}
+				errorMessage="not valid username"
+				errorCondition={form[2].valid === false}
 			/>
-			{form[2].valid === false && <p>your username is the worst -'-</p>}
 			<div id="signin-button-link">
 				<Button id="submit-button" onClick={submit} label="Submit" />
 				<Link id="login-link" to="/login">

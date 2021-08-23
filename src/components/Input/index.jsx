@@ -7,8 +7,9 @@ const Input = (props) => {
 				onChange={props.onChange}
 				name={props.label}
 				placeholder={props.placeholder}
-				{...props}
+				onBlur={props.onBlur}
 			/>
+			{props.errorCondition && <p>{props.errorMessage}</p>}
 		</div>
 	);
 };

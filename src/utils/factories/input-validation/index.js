@@ -14,7 +14,20 @@ const password = (input) => {
 };
 
 const username = (input) => {
-	input.valid = isAlphanumeric(input.value);
+	let usernameValidation;
+
+	if (
+		input.value.length < 3 ||
+		input.value.length > 15 ||
+		input.value.includes(' ') ||
+		RegExp(/[^a-zA-Z0-9 ]/).test(input.value)
+	) {
+		usernameValidation = false;
+	} else {
+		usernameValidation = true;
+	}
+
+	input.valid = usernameValidation;
 	return input;
 };
 
