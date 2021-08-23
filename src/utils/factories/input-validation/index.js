@@ -1,6 +1,5 @@
 import isEmail from 'validator/lib/isEmail';
 import isStrongPassword from 'validator/lib/isStrongPassword';
-import isAlphanumeric from 'validator/lib/isAlphanumeric';
 
 const email = (input) => {
 	console.log(input);
