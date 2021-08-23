@@ -9,6 +9,7 @@ import { registerNewUser } from '../../utils/services/sign-in-service';
 import inputValidationFactory from '../../utils/factories/input-validation';
 
 const SignIn = () => {
+	const [isSubmittedValid, setIsSubmittedValid] = useState(null);
 	const [form, setForm] = useState([
 		{
 			key: 'email',
@@ -31,7 +32,14 @@ const SignIn = () => {
 	]);
 
 	const submit = async () => {
-		await registerNewUser(form[0].value, form[1].value, form[2].value);
+		if ((form[0].valid, form[1].valid, form[2].valid)) {
+			setIsSubmittedValid(true);
+
+			await registerNewUser(form[0].value, form[1].value, form[2].value);
+			return;
+		}
+
+		setIsSubmittedValid(false);
 	};
 
 	const handleInput = (event, type) => {
@@ -64,10 +72,9 @@ const SignIn = () => {
 		});
 	};
 
-	console.log(form);
-
 	return (
 		<div id="signin-page">
+			{isSubmittedValid === false && <p>some of the inputs arent valid!</p>}
 			<Input
 				className="signin-input"
 				type="email"
