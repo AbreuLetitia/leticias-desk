@@ -1,8 +1,9 @@
-const Button = () => {
+const Button = (props) => {
 	return (
 		<div>
-			<label></label>
-			<button />
+			<button {...props} onClick={props.onClick}>
+				{props.label}
+			</button>
 		</div>
 	);
 };
